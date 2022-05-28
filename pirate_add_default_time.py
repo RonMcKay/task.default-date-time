@@ -3,7 +3,7 @@ from __future__ import print_function
 from datetime import time
 from tasklib import Task, local_zone
 
-DEFAULT_TIME = time(22,0,0)  # Your wanted default time
+DEFAULT_TIME = time(19,0,0)  # Your wanted default time
 
 def is_local_midnight(timestamp):
     return timestamp.astimezone(local_zone).time() == time(0,0,0)
