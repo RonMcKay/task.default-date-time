@@ -9,11 +9,13 @@ DEFAULT_TIME = time(19, 0, 0)  # Your wanted default time
 
 
 def is_local_midnight(timestamp: datetime) -> bool:
-    return timestamp.astimezone(datetime.now().astimezone()).time() == time(0, 0, 0)
+    return timestamp.astimezone(datetime.now().astimezone().tzinfo).time() == time(
+        0, 0, 0
+    )
 
 
 def set_default_time(timestamp: datetime) -> datetime:
-    return timestamp.astimezone(datetime.now().astimezone()).replace(
+    return timestamp.astimezone(datetime.now().astimezone().tzinfo).replace(
         hour=DEFAULT_TIME.hour,
         minute=DEFAULT_TIME.minute,
         second=DEFAULT_TIME.second,
